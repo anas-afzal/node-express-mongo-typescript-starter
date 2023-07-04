@@ -9,10 +9,14 @@
     "build": "tsc -p tsconfig.prod.json && tsc-alias -p tsconfig.prod.json",
     "test": "NODE_ENV=test jest",
     "test:watch": "NODE_ENV=test jest --watch",
-    "test:coverage": "NODE_ENV=test jest --coverage"
+    "test:coverage": "NODE_ENV=test jest --coverage",
+    "prepare": "husky install"
   },
   "author": "Muhammad Anas Afzal",
   "license": "ISC",
+  "lint-staged": {
+    "**/*.{js,ts,json,md}": "prettier --write --config ./.prettierrc"
+  },
   "dependencies": {
     "axios": "^1.4.0",
     "bcrypt": "^5.1.0",
@@ -45,6 +49,7 @@
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-jest": "^27.2.2",
     "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.3",
     "jest": "^29.5.0",
     "lint-staged": "^13.2.3",
     "nodemon": "^2.0.22",
