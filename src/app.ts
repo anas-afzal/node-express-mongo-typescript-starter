@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import { config } from '@src/config';
+import { httpErrorHandler, pathErrorHandler } from '@src/middlewares';
 import { logger } from '@src/utils/logger';
 
 export const app = express();
@@ -35,3 +36,8 @@ app.use(
 
 // API status
 app.use('/ping', (req, res) => res.status(200).json({ status: 200, message: 'ok' }));
+
+// Error handling
+app.use(pathErrorHandler);
+
+app.use(httpErrorHandler);
